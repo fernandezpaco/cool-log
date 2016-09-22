@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" name="viewport">
+
+  <title>face-tracker Demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../video-camera/video-camera.html">
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../cool-log.html">
+</head>
+<body>
+
+<template is="dom-bind">
+
+<video-camera videoelement="{{video}}" onclick="add()"></video-camera>
+<cool-log id="track"></cool-log>
+
+<script type="text/javascript">
+	function add(){
+		var tracker = document.getElementById('track');
+		tracker.addRecord('test');
+	}
+</script>
+
+</template>
+</body>
+</html>

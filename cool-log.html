@@ -1,0 +1,41 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-list/iron-list.html">
+
+
+<dom-module id="cool-log">
+<template>
+<style>
+</style>
+ <iron-list items="[[items]]" as="item" style="height:100px;position:relative;top:-120px;left:50px;color:#33FF33;font-family: Tahoma, Geneva, sans-serif;">
+    <template>
+      <div>
+        Date: [[item.date]] [[item.description]]
+      </div>
+    </template>
+  </iron-list>
+</template>
+<script>
+Polymer({
+    is: "cool-log",
+    properties: {
+        items: {
+            type: Array,
+            value: [],
+            notify: true
+        }
+    },
+   /*observers: [
+        'dummy(items.*)'
+    ],*/
+    addRecord: function(log){
+        var record = {date: Date.now(), description: log};
+        this.unshift('items',record);
+        //this.fire('data2-changed',this.data);
+    }/*,
+    dummy: function(val){
+        this.fire('data2-changed',this.items);
+        console.log(this.items);
+    }*/
+});
+</script>
+</dom-module>
