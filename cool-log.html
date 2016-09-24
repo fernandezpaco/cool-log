@@ -28,7 +28,13 @@ Polymer({
         'dummy(items.*)'
     ],*/
     addRecord: function(log){
-        var record = {date: Date.now(), description: log};
+        var record;
+        if(log.data)
+            record = {date: Date.now(), description: log.data.desc};
+        else if(log.desc)
+            record = {date: Date.now(), description: log.desc};
+        else
+            record = {date: Date.now(), description: log};
         this.unshift('items',record);
         //this.fire('data2-changed',this.data);
     }/*,
